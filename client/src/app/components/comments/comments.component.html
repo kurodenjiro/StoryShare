@@ -1,0 +1,33 @@
+<div class="comments-wrapper">
+  <div *ngIf="comments.length !== 0">
+    <mat-card>
+      <mat-card-subtitle>
+        Comments: {{comments.length}}
+      </mat-card-subtitle>
+      <div
+        *ngFor="let comment of comments; let i = index"
+        class="comment-item"
+      >
+        <mat-card-subtitle>
+          <b>{{comment.name}}</b>
+          <i>{{comment.date.split('T')[0]}}</i>
+        </mat-card-subtitle>
+        <p>
+          <i>"{{comment.text}}"</i>
+        </p>
+        <mat-divider
+          *ngIf="i !== comments.length - 1"
+        >
+        </mat-divider>
+      </div>
+    </mat-card>
+  </div>
+
+  <div *ngIf="comments.length === 0">
+    <mat-card>
+      <mat-card-subtitle>
+        There is no comments yet
+      </mat-card-subtitle>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div>
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Your name..."
+      [(ngModel)]="name"
+      name="name"
+    >
+  </mat-form-field>
+  <br>
+
+  <mat-form-field>
+    <textarea
+      matInput
+      placeholder="Your message..."
+      [(ngModel)]="text"
+      name="text"
+    >
+    </textarea>
+  </mat-form-field>
+  <br>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="sendComment()"
+  >
+    Leave Comment
+  </button>
+</div>

@@ -1,0 +1,18 @@
+.comments-wrapper {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.comment-item {
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.comment-item:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.comment-item b {
+  margin-right: 20px;
+  font-size: 18px;
+}

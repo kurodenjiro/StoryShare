@@ -1,0 +1,68 @@
+<!--if there is no data-->
+<div *ngIf="!stories">
+  <app-spinner></app-spinner>
+</div>
+
+<!--if there is data-->
+<div *ngIf="stories" class="home-page">
+  <div>
+    <app-story-editor
+      (addStoryToList)="addStoryToList($event)"
+    >
+    </app-story-editor>
+  </div>
+
+  <div>
+    <mat-divider></mat-divider>
+    <app-paginator
+      [length]="stories.length"
+      (updatePagination)="updatePagination($event)"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      [pageSize]="10"
+    >
+    </app-paginator>
+    <mat-divider></mat-divider>
+  </div>
+  
+  <div>
+    <mat-card *ngFor="let story of storiesToRender; let i = index">
+      <mat-card-header>
+        <mat-card-title>
+          {{story.author}}
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="story.comments.length === 1">
+          1 comment
+        </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="story.comments.length !== 1">
+          {{story.comments.length}} comments
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <img src={{story.image}} alt={{story.author}}>
+      </mat-card-content>
+
+      <mat-card-subtitle *ngIf="story.story.length < 150">
+        {{story.story}}
+      </mat-card-subtitle>
+      <mat-card-subtitle *ngIf="story.story.length > 150">
+        {{story.story.substring(0, 150)}}...
+      </mat-card-subtitle>
+
+      <mat-card-actions>
+        <button
+          mat-button
+          (click)="hidePost(i)"
+        >
+          Hide
+        </button>
+        <button
+          mat-button
+          routerLink="/story/{{story._id}}"
+        >
+          See more
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

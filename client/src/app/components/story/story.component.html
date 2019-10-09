@@ -1,0 +1,45 @@
+<div>
+  <div *ngIf="!story">
+    <app-spinner></app-spinner>
+  </div>
+
+  <div *ngIf="story" class="story-wrapper">
+    <div>
+      <mat-card>
+        <mat-card-title>{{story.author}}</mat-card-title>
+        <mat-card-content>
+          <div>
+            <img src={{story.image}} alt={{story.author}}>
+          </div>
+        </mat-card-content>
+        <mat-card-subtitle>{{story.story}}</mat-card-subtitle>
+        <mat-card-actions>
+          <button mat-button routerLink="/home">
+            Return
+          </button>
+          <a
+            mat-button href={{story.image}}
+            target="_blank"
+          >
+            Full size
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <div>
+      <app-comment-form
+        (updateCommentList)="updateCommentList($event)"
+        [storyID]="storyID"
+      >
+      </app-comment-form>
+    </div>
+
+    <div>
+      <app-comments
+        [comments]="story.comments"
+      >
+      </app-comments>
+    </div>
+  </div>
+</div>

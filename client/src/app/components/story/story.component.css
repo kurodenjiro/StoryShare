@@ -1,0 +1,23 @@
+.mat-card {
+  max-width: 50%;
+  display: inline-block;
+  word-wrap: break-word;
+  animation: appearX .3s ease;
+}
+
+.story-wrapper > div:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.mat-card-content div {
+  display: inline-block;
+}
+
+.mat-card-content img {
+  width: 100%;
+}
+
+@keyframes appearX {
+  0%   { transform: translateX(-50px)}
+  100% { transform: translateX(0) }
+}

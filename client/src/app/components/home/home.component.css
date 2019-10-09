@@ -1,0 +1,30 @@
+img {
+  width: 100%;
+}
+
+.mat-card .mat-card-title {
+  text-align: left;
+}
+
+.mat-card {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  margin: 8px;
+  vertical-align: top;
+  animation: appearY .3s ease;
+  word-wrap: break-word;
+}
+
+@keyframes appearY {
+  0%   { transform: translateY(50px) }
+  100% { transform: translateY(0   ) }
+}
+
+.mat-card-subtitle {
+  text-align: left;
+}
+
+.home-page > div:not(:last-child) {
+  margin-bottom: 30px;
+}
